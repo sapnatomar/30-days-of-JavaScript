@@ -60,12 +60,14 @@ const sortedBands = bands.sort((a, b) => {
   return modifiedString(a) > modifiedString(b) ? 1 : -1;
 })
 
-const list = document.querySelector('#bands');
-sortedBands.map((item) => {
-  const li = document.createElement("li");
-  li.innerHTML = item;
-  list.appendChild(li);
-});
+// const list = document.querySelector('#bands');
+// sortedBands.map((item) => {
+//   const li = document.createElement("li");
+//   li.innerHTML = item;
+//   list.appendChild(li);
+// });
+
+document.querySelector('#bands').innerHTML = sortedBands.map((band) => `<li>${band}</li>`).join('');
 
 </script>
 
