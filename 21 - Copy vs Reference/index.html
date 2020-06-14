@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS Reference VS Copy</title>
+</head>
+<body>
+
+  <script>
+
+    // FOR ARRAYS
+    const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
+
+    // this is an array reference, not an array copy. They both point to the same array!
+    const team = players;
+
+    // ways to make copy of an array
+
+    // 1. using slice()
+    const team2 = players.slice();
+
+    // 2. create a new array and concat the old one in
+    const team3 = [].concat(players);
+
+    // 3. use the new ES6 spread
+    const team4 = [...players];
+
+    // 4. using Array.from()
+    const team5 = Array.from(players);
+
+
+
+    // FOR OBJECTS
+    const person = {
+      name: 'Wes Bos',
+      age: 80
+    };
+
+    // ways to make copy of an object
+
+    // 1. using Object.assign()
+    const cap2 = Object.assign({}, person, { number: 99, age: 12 });
+
+    // 2. using Spread
+    const cap3 = {...person};
+
+    // IMP - Spread is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+
+    const wes = {
+      name: 'Wes',
+      age: 100,
+      social: {
+        twitter: '@wesbos',
+        facebook: 'wesbos.developer'
+      }
+    };
+
+    const dev = Object.assign({}, wes);
+    const dev2 = JSON.parse(JSON.stringify(wes));
+
+
+  </script>
+
+</body>
+</html>

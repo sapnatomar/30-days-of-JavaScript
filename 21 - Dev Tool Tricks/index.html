@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dev Tool Tricks!</title>
+</head>
+<body>
+
+  <p onClick="makeGreen()">This is heading!</p>
+
+  <script>
+    const dogs = [{ name: 'winnie-the-pooh', age: 7 }, { name: 'mario', age: 5 }];
+
+    function makeGreen() {
+      const p = document.querySelector('p');
+      p.style.color = '#BADA55';
+      p.style.fontSize = '50px';
+    }
+
+    // Regular
+    console.log('hello world');
+
+    // Interpolated
+    console.log('Hi I am %s!', '💩');
+
+    // Styled
+    console.log('%c Just some test text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+
+    // warning
+    console.warn('this is warning');
+
+    // Error :|
+    console.error('this is error!');
+
+    // Info
+    console.info('this is info');
+
+    // Testing
+    const p = document.querySelector('p');
+
+    console.assert(p.classList.contains('sapna'), 'Nops! paragraph does not contain sapna');
+
+    // clearing
+    // console.clear();
+
+    // Viewing DOM Elements
+    console.log(p);
+    console.dir(p);
+
+    // Grouping together
+    dogs.forEach(dog => {
+      console.groupCollapsed(`${dog.name}`);
+      console.log(`This is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old`);
+      console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+      console.groupEnd(`${dog.name}`);
+    });
+
+    // counting
+
+    console.count('sapna');
+    console.count('sapna');
+    console.count('sapna');
+    console.count('tomar');
+    console.count('tomar');
+    console.count('Sapna');
+    console.count('tomar');
+    console.count('Sapna');
+    console.count('Sapna');
+    console.count('sapna');
+    console.count('sapna');
+
+    // timing
+    console.time('fetching data');
+    fetch('https://api.github.com/users/sapnatomar')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+    // Viewing data in table format
+    console.table(dogs);
+
+  </script>
+</body>
+</html>
